@@ -1,0 +1,17 @@
+.navbar-brand{
+    font-size: 2.5em;
+    color: black;
+    padding-left: 1em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+.navbar-nav > li > a {
+    font-size: 1.2em; 
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-header img{
+    width: 5em;
+}

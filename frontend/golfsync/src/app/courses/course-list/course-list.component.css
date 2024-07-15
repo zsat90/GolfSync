@@ -1,0 +1,37 @@
+
+
+.container {
+    max-width: 960px;
+  }
+  
+  .card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    margin-bottom: 0;
+  }
+  
+  .card-footer {
+    background-color: #f8f9fa;
+  }
+  
+  .btn-sm {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .modal-header {
+    border-bottom: none;
+  }
+  
+  .modal-footer {
+    border-top: none;
+  }
+  
+  .modal-title {
+    font-size: 1.25rem;
+  }
+  
