@@ -15,15 +15,20 @@ export class CourseListService {
     return this.http.get<Course[]>(this.uri)
   }
 
+  getCourseById(id: string): Observable<Course> {
+    return this.http.get<Course>(`${this.uri}/${id}`)
+  }
+
   addCourse(course: Course): Observable<Course> {
     return this.http.post<Course>(`${this.uri}`, course);
   }
 
-  // updateCourse(course: Course): Observable<Course> {
-  //   return this.http.put<Course>(`${this.uri}/${course.id}`, course);
-  // }
+  updateCourse(course: Course): Observable<Course> {
+    return this.http.put<Course>(`${this.uri}/${course._id}`, course);
+  }
 
-  deleteCourse(id: number): Observable<void> {
+  deleteCourse(id: string): Observable<void> {
     return this.http.delete<void>(`${this.uri}/${id}`);
   }
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseListService } from '../../service/course-list.service';
 import { Course } from '../../models/courses.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-course-list',
@@ -9,10 +10,11 @@ import { Course } from '../../models/courses.model';
 })
 export class CourseListComponent implements OnInit {
   courses: Course[] = []
-  newCourse: Course = { name: '', description: '', location: ''}
+  newCourse: Course = {_id: '', name: '', description: '', location: '', image: ''}
 
 
-  constructor(private courseService: CourseListService) {}
+
+  constructor(private courseService: CourseListService, private router: Router) {}
 
   ngOnInit(): void {
     this.getCourses()
@@ -21,28 +23,19 @@ export class CourseListComponent implements OnInit {
   getCourses(): void {
     this.courseService.getAllCourses().subscribe((data: Course[]) => {
       this.courses = data
+      
     })
   }
 
   addCourse(): void {
     this.courseService.addCourse(this.newCourse).subscribe((course: Course) => {
       this.courses.push(course);
-      this.newCourse = { name: '', description: '', location: '' };
+      this.newCourse = { _id: '', name: '', description: '', location: '', image: ''};
     });
   }
 
-  // editCourse(course: Course): void {
-  //   this.courseService.updateCourse(course).subscribe((updatedCourse: Course) => {
-  //     const index = this.courses.findIndex(c => c.id === updatedCourse.id);
-  //     if (index !== -1) {
-  //       this.courses[index] = updatedCourse;
-  //     }
-  //   });
-  // }
+  editCourse(course: Course): void {
+    this.router.navigate(['/courses', course._id, 'edit']);
+  }
 
-  // deleteCourse(course: Course): void {
-  //   this.courseService.deleteCourse(course.id).subscribe(() => {
-  //     this.courses = this.courses.filter(c => c.id !== course.id);
-  //   });
-  // }
 }

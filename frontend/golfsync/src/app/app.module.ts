@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { CourseListComponent } from './courses/course-list/course-list.component';
 import { NewCourseComponent } from './courses/new-course/new-course.component';
 import { RouterModule } from '@angular/router';
+import { EditCourseComponent } from './courses/edit-course/edit-course.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RouterModule } from '@angular/router';
     LandingPageComponent,
     LoginComponent,
     CourseListComponent,
-    NewCourseComponent
+    NewCourseComponent,
+    EditCourseComponent
   ],
   imports: [
     BrowserModule,

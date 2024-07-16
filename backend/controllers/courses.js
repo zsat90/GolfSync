@@ -10,12 +10,28 @@ const getAllCourses = async (req, res, next) => {
   }
 };
 
+// get course by id
+const getCourseById = async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    if (!id) {
+      return res.status(404).json({ message: "Course not found" });
+    }
+
+    const course = await Course.findById(id);
+
+    res.status(200).json(course);
+  } catch (err) {
+    next(err);
+  }
+};
+
 // create course
 const addCourse = async (req, res, next) => {
   try {
-    const { name, description, location } = req.body;
+    const { name, description, location, image } = req.body;
 
-    const course = new Course({ name, description, location });
+    const course = new Course({ name, description, location, image });
     await course.save();
 
     res.status(201).json(course);
@@ -28,13 +44,13 @@ const addCourse = async (req, res, next) => {
 const updateCourse = async (req, res, next) => {
   try {
     const courseId = req.params.id;
-    const { name, description, location } = req.body;
+    const { name, description, location, image } = req.body;
 
     if (!name || !description || !location) {
       res.status(400).json({ message: "All fields required" });
     }
 
-    const updatedData = { name, description, location };
+    const updatedData = { name, description, location, image };
 
     const updatedCourse = await Course.findByIdAndUpdate(
       courseId,
@@ -69,4 +85,10 @@ const deleteCourse = async (req, res, next) => {
   }
 };
 
-module.exports = { getAllCourses, addCourse, updateCourse, deleteCourse };
+module.exports = {
+  getAllCourses,
+  addCourse,
+  updateCourse,
+  deleteCourse,
+  getCourseById,
+};

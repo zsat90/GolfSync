@@ -13,6 +13,10 @@ const courseSchema = new mongoose.Schema({
   location: {
     type: String,
   },
+
+  image: {
+    type: String,
+  },
 });
 
 const Course = mongoose.model("Course", courseSchema);
