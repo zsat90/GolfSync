@@ -35,4 +35,9 @@
   .card-title {
     font-size: 1.50rem;
   }
+
+  .btn-lg{
+    margin: 1em;
+    font-size: 1.7em;
+  }
   

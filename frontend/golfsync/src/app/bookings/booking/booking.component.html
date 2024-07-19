@@ -1,0 +1,60 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header">
+            <h3>Book a Tee Time</h3>
+          </div>
+          <div class="card-body">
+            
+            <div *ngIf="isLoggedIn; else loginPrompt">
+              <form #bookingForm="ngForm" (ngSubmit)="bookCourse(bookingForm)">
+                <div class="form-group">
+                  <label for="course">Course</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="course"
+                    name="course"
+                    [(ngModel)]="booking.course"
+                    required
+                    readonly
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <label for="date">Date</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="date"
+                    name="date"
+                    [(ngModel)]="booking.date"
+                    required
+                  />
+                </div>
+                <div class="form-group mt-3">
+                  <label for="time">Time</label>
+                  <input
+                    type="time"
+                    class="form-control"
+                    id="time"
+                    name="time"
+                    [(ngModel)]="booking.time"
+                    required
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary mt-3" [disabled]="bookingForm.invalid">Book</button>
+                <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+                  {{ errorMessage }}
+                </div>
+              </form>
+            </div>
+            <ng-template #loginPrompt>
+              <p class="alert alert-info">Please log in to book a tee time.</p>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

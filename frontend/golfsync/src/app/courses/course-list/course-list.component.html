@@ -2,7 +2,7 @@
 <div class="container mt-4">
   <div class="row mb-3">
     <div class="col-md-12 text-right">
-      <a class="btn btn-primary"  [routerLink]="['/courses', 'new-course']">Add Course</a>
+      <a type="button" class="btn btn-primary btn-lg"  [routerLink]="['/courses', 'new-course']">Add Course</a>
     </div>
   </div>
 
@@ -20,6 +20,7 @@
           <p class="card-text"><strong>Location:</strong> {{ course.location }}</p>
         </div>
         <div class="card-footer text-right">
+          <a class="btn btn-primary pull-left" routerLink="/booking" [queryParams]="{ course: course.name }">Book</a>
           <a class="btn btn-info mr-2" (click)="editCourse(course)">Edit</a>
         </div>
       </div>

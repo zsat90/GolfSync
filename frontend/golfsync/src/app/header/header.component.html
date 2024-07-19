@@ -1,13 +1,27 @@
 <nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <img src="../../assets/images/golfsyncHeader.jpg" alt="Golf sync logo">
-        </div>
-        <div>
-            <a class="navbar-brand" routerLink="/">GolfSync</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a routerLink="/login">Login</a></li>
-        </ul>
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="../../assets/images/golfsyncHeader.jpg" alt="Golf sync logo" />
     </div>
+    <div>
+      <a class="navbar-brand" routerLink="/">GolfSync</a>
+    </div>
+    <ul
+      class="nav navbar-nav navbar-right d-flex w-100 justify-content-between"
+    >
+      <li class="login-btn" *ngIf="!isLoggedIn()">
+        <a routerLink="/login">Login</a>
+      </li>
+
+      <li *ngIf="isLoggedIn()" class="username">
+        <span>Welcome, {{ currentUser?.username }}</span>
+      </li>
+
+      <li *ngIf="isLoggedIn()">
+        <a class="login-btn" href="javascript:void(0)" (click)="logout()"
+          >Logout</a
+        >
+      </li>
+    </ul>
+  </div>
 </nav>

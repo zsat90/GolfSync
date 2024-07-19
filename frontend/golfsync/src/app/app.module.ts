@@ -12,6 +12,8 @@ import { CourseListComponent } from './courses/course-list/course-list.component
 import { NewCourseComponent } from './courses/new-course/new-course.component';
 import { RouterModule } from '@angular/router';
 import { EditCourseComponent } from './courses/edit-course/edit-course.component';
+import { RegisterComponent } from './login/register/register/register.component';
+import { BookingComponent } from './bookings/booking/booking.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { EditCourseComponent } from './courses/edit-course/edit-course.component
     LoginComponent,
     CourseListComponent,
     NewCourseComponent,
-    EditCourseComponent
+    EditCourseComponent,
+    RegisterComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ const connectDB = require("./db/db");
 const errorHandler = require("./middleware/errorHandler");
 const userRoutes = require("./routes/usersRoutes");
 const courseRoutes = require("./routes/coursesRoutes");
+const bookingRoutes = require("./routes/bookingsRoutes");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(cors());
 //routes
 app.use("/api", userRoutes);
 app.use("/api", courseRoutes);
+app.use("/api", bookingRoutes);
 
 // error handler. Call next(err) on controller files
 app.use(errorHandler);
